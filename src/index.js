@@ -1,14 +1,17 @@
 import React, { ConcurrentMode } from 'react'
 import { createRoot } from 'react-dom'
 import Interface from './components/Interface'
+import Provider from './store'
 
 const DOMNode = document.getElementById('root')
 const Root = createRoot(DOMNode)
 
-function render(Interface) {
+function render(NextInterface) {
   Root.render(
     <ConcurrentMode>
-      <Interface />
+      <Provider>
+        <NextInterface />
+      </Provider>
     </ConcurrentMode>,
   )
 }
